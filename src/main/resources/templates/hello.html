@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야구모자 쇼핑몰</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        nav {
+            background-color: #444;
+            overflow: hidden;
+            float: left; /* 좌측으로 배치 */
+            width: 12%; /* 좌측 너비 설정 */
+            height: 100%;
+            min-height: 100vh;
+        }
+        nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #555; /* 마우스 호버 시 배경색 변경 */
+            }
+        .container {
+            max-width: 800px;
+            margin: 2em auto;
+            text-align: center;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 1em;
+            margin: 1em;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>야구모자 쇼핑몰</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+        <!-- 추가적인 메뉴 항목들을 필요에 따라 추가하세요 -->
+    </nav>
+    <div class="container">
+        <div class="product" th:each="product : ${products}">
+            <h2 th:text="${product.name}"></h2>
+            <p th:text="${product.description}"></p>
+            <p>가격: ₩<span th:text="${product.price}"></span></p>
+        </div>
+    </div>
+</body>
+</html>
